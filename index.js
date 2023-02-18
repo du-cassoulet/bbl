@@ -13,7 +13,11 @@ const server = app.listen(process.env.PORT, () => {
 });
 
 let connected = {};
-const io = new Server(server, { cors: { origin: "*" } });
+const io = new Server(server, {
+	cors: {
+		origin: "*",
+	},
+});
 
 setInterval(() => {
 	io.emit("update", Object.values(connected));
@@ -36,6 +40,10 @@ io.on("connection", (socket) => {
 		} else {
 			connected[socket.id].coords = coords;
 		}
+	});
+
+	socket.on("changeUsername", (newUsername) => {
+		connected[socket.id].username = newUsername;
 	});
 
 	socket.on("sendMessage", (message) => {

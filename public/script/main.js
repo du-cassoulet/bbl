@@ -7,31 +7,31 @@ import Renderer from "./Renderer.js";
 
 const socket = io();
 
+let user = null;
 let base = 150;
 let spawn = Map.HEIGHT - base - 50;
 
 const player = new Player(Map.WIDTH / 2, spawn);
 
-let user = null;
-
+elements.push(new Element(base, Map.HEIGHT - base, Map.WIDTH - base * 2, 75));
+elements.push(new Element(base, Map.HEIGHT - base - 250, 400, 75));
 elements.push(
-	new Element(base, Map.HEIGHT - base, Map.WIDTH - base * 2, 75, 0.9)
-);
-elements.push(new Element(base, Map.HEIGHT - base - 250, 400, 75, 0.9));
-elements.push(
-	new Element(Map.WIDTH - base - 400, Map.HEIGHT - base - 250, 400, 75, 0.9)
+	new Element(Map.WIDTH - base - 400, Map.HEIGHT - base - 250, 400, 75)
 );
 
-if (!window.localStorage.getItem("_un")) {
+function getUsername() {
+	return window.localStorage.getItem("_un");
+}
+
+if (!getUsername()) {
 	window.localStorage.setItem(
 		"_un",
 		`Guest-${Math.floor(Math.random() * 8999) + 1000}`
 	);
 }
 
-function getUsername() {
-	return window.localStorage.getItem("_un");
-}
+const usernameField = document.getElementById("username-field");
+usernameField.value = getUsername();
 
 const chat = new Chat();
 
@@ -76,7 +76,7 @@ socket.on("connect", () => {
 		chat.messages.append(eventElement);
 	});
 
-	chatElement.addEventListener("submit", (e) => {
+	chatElement.onsubmit = function (e) {
 		e.preventDefault();
 		if (chatInput.value === "") return;
 
@@ -86,5 +86,21 @@ socket.on("connect", () => {
 		});
 
 		chatInput.value = "";
-	});
+	};
+
+	document.getElementById("change-username").onsubmit = function (e) {
+		e.preventDefault();
+
+		window.localStorage.setItem("_un", usernameField.value);
+		socket.emit("changeUsername", getUsername());
+
+		const updateUsername = document.getElementById("update-username");
+		updateUsername.style.background = "#45d166";
+		updateUsername.textContent = "Updated!";
+
+		setTimeout(() => {
+			updateUsername.style.background = "#4043f5";
+			updateUsername.textContent = "Update";
+		}, 3000);
+	};
 });

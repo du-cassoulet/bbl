@@ -1,8 +1,8 @@
 export class Gui {
-    constructor() {}
-    render() {}
-    exit() {}
-    init() {}
+	constructor() {}
+	render() {}
+	exit() {}
+	init() {}
 }
 
 export var currentGui = null;

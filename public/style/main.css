@@ -1,118 +1,137 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@800&display=swap");
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	overflow: hidden;
-	font-family: "Ubuntu";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: "Ubuntu";
 }
 
 body {
-	height: 100vh;
-	width: 100vw;
+  height: 100vh;
+  width: 100vw;
 }
 
 canvas {
-	position: fixed;
-	z-index: 1;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	object-fit: cover;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  object-fit: cover;
 }
 
 .gui {
-	position: fixed;
-	z-index: 999;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .chat {
-	position: fixed;
-	bottom: 25px;
-	left: 25px;
-	width: 400px;
-	background: #333;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  width: 400px;
+  background: #333;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 .chat[hidden] {
-	display: none;
+  display: none;
 }
 .chat .chat-messages {
-	height: 400px;
-	overflow-y: scroll;
-	padding: 10px;
-	color: #ccc;
-	display: flex;
-	flex-direction: column-reverse;
-	flex-flow: row wrap;
+  height: 400px;
+  overflow-y: scroll;
+  padding: 10px;
+  color: #ccc;
+  display: flex;
+  flex-direction: column-reverse;
+  flex-flow: row wrap;
 }
 .chat .chat-messages::-webkit-scrollbar {
-	width: 10px;
+  width: 10px;
 }
 .chat .chat-messages::-webkit-scrollbar-track {
-	background: #333;
+  background: #333;
 }
 .chat .chat-messages::-webkit-scrollbar-thumb {
-	border: 3px solid rgba(0, 0, 0, 0);
-	background-clip: padding-box;
-	border-radius: 9999px;
-	background-color: #555;
+  border: 3px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: #555;
 }
 .chat .chat-messages .messages-list {
-	display: flex;
-	flex-direction: column;
-	gap: 15px;
-	margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: auto;
 }
 .chat .chat-messages .messages-list .event-message {
-	color: #ffea2e;
-	font-size: 15px;
+  color: #ffea2e;
+  font-size: 15px;
 }
 .chat .chat-messages .messages-list .message {
-	display: flex;
-	flex-direction: column;
-	min-height: min-content;
+  display: flex;
+  flex-direction: column;
+  min-height: min-content;
 }
 .chat .chat-messages .messages-list .message .content {
-	color: #fff;
-	font-size: 15px;
+  color: #fff;
+  font-size: 15px;
 }
 .chat .chat-messages .messages-list .message .username {
-	font-size: 13px;
-	margin-bottom: 3px;
-	font-weight: 500;
-	border-left: 2px solid #000;
-	padding: 3px 5px;
-	border-radius: 2px;
+  font-size: 13px;
+  margin-bottom: 3px;
+  font-weight: 500;
+  border-left: 2px solid #000;
+  padding: 3px 5px;
+  border-radius: 2px;
 }
 .chat .chat-input {
-	background: #222;
-	border: none;
-	padding: 10px;
-	outline: none;
-	border-left: 2px solid #000;
-	color: #fff;
+  background: #222;
+  border: none;
+  padding: 10px;
+  outline: none;
+  border-left: 2px solid #000;
+  color: #fff;
 }
 
 .change-username {
-	position: fixed;
-	top: 25px;
-	left: 25px;
-	width: 400px;
-	display: flex;
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  display: flex;
+  border: 1px solid #888;
+  overflow: hidden;
+  border-radius: 5px;
 }
 .change-username button {
-	height: 35px;
-	width: 35px;
-	font-size: 15px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #4043f5;
+  border: none;
+  color: #fff;
+  width: 80px;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+  outline: none;
+}
+.change-username button:hover {
+  background: #595bee;
+}
+.change-username input {
+  padding: 10px;
+  outline: none;
+  border: none;
+  font-size: 16px;
 }
 
 /*# sourceMappingURL=main.css.map */

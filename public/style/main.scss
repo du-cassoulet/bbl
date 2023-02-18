@@ -118,12 +118,33 @@ canvas {
 	position: fixed;
 	top: 25px;
 	left: 25px;
-	width: 400px;
 	display: flex;
+	border: 1px solid #888;
+	overflow: hidden;
+	border-radius: 5px;
 
 	button {
-		height: 35px;
-		width: 35px;
 		font-size: 15px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: #4043f5;
+		border: none;
+		color: #fff;
+		width: 80px;
+		cursor: pointer;
+		transition: 0.1s ease-in-out;
+		outline: none;
+
+		&:hover {
+			background: #595bee;
+		}
+	}
+
+	input {
+		padding: 10px;
+		outline: none;
+		border: none;
+		font-size: 16px;
 	}
 }
