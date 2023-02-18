@@ -9,7 +9,7 @@ export class Control {
 }
 
 export class ControlManager {
-	constructor(keyManager) {
+	constructor() {
 		this.controls = {};
 		this.keys = {};
 	}
