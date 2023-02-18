@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="./main.js" defer></script>
+		<link rel="stylesheet" href="./style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<main class="gui">
+			<form class="chat" id="chat" hidden>
+				<article class="chat-messages">
+					<div id="chat-messages" class="messages-list"></div>
+				</article>
+				<input
+					class="chat-input"
+					id="chat-input"
+					type="text"
+					spellcheck="false"
+					autocomplete="off"
+				/>
+			</form>
+		</main>
+		<canvas></canvas>
+	</body>
+</html>
