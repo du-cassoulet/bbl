@@ -1,2 +1,2 @@
-npm i
+npm i --s
 nodemon ./index.js
