@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@800&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	overflow: hidden;
+	font-family: "Ubuntu";
+}
+
+body {
+	height: 100vh;
+	width: 100vw;
+}
+
+canvas {
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	object-fit: cover;
+}
+
+.gui {
+	position: fixed;
+	z-index: 999;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.chat {
+	position: fixed;
+	bottom: 25px;
+	left: 25px;
+	width: 400px;
+	background: #333;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+
+	&[hidden] {
+		display: none;
+	}
+
+	.chat-messages {
+		height: 400px;
+		overflow-y: scroll;
+		padding: 10px;
+		color: #ccc;
+		display: flex;
+		flex-direction: column-reverse;
+		flex-flow: row wrap;
+
+		&::-webkit-scrollbar {
+			width: 10px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: #333;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border: 3px solid rgba(0, 0, 0, 0);
+			background-clip: padding-box;
+			border-radius: 9999px;
+			background-color: #555;
+		}
+
+		.messages-list {
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+			margin-top: auto;
+
+			.event-message {
+				color: #ffea2e;
+				font-size: 15px;
+			}
+
+			.message {
+				display: flex;
+				flex-direction: column;
+				min-height: min-content;
+
+				.content {
+					color: #fff;
+					font-size: 15px;
+				}
+
+				.username {
+					font-size: 13px;
+					margin-bottom: 3px;
+					font-weight: 500;
+					border-left: 2px solid #000;
+					padding: 3px 5px;
+					border-radius: 2px;
+				}
+			}
+		}
+	}
+
+	.chat-input {
+		background: #222;
+		border: none;
+		padding: 10px;
+		outline: none;
+		border-left: 2px solid #000;
+		color: #fff;
+	}
+}
+
+.change-username {
+	position: fixed;
+	top: 25px;
+	left: 25px;
+	width: 400px;
+	display: flex;
+
+	button {
+		height: 35px;
+		width: 35px;
+		font-size: 15px;
+	}
+}

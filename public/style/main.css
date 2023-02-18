@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@800&display=swap");
-
 * {
 	margin: 0;
 	padding: 0;
@@ -43,11 +42,9 @@ canvas {
 	flex-direction: column;
 	overflow: hidden;
 }
-
 .chat[hidden] {
 	display: none;
 }
-
 .chat .chat-messages {
 	height: 400px;
 	overflow-y: scroll;
@@ -57,29 +54,45 @@ canvas {
 	flex-direction: column-reverse;
 	flex-flow: row wrap;
 }
-
 .chat .chat-messages::-webkit-scrollbar {
 	width: 10px;
 }
-
 .chat .chat-messages::-webkit-scrollbar-track {
 	background: #333;
 }
-
 .chat .chat-messages::-webkit-scrollbar-thumb {
 	border: 3px solid rgba(0, 0, 0, 0);
 	background-clip: padding-box;
 	border-radius: 9999px;
 	background-color: #555;
 }
-
-.chat-messages .messages-list {
+.chat .chat-messages .messages-list {
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
 	margin-top: auto;
 }
-
+.chat .chat-messages .messages-list .event-message {
+	color: #ffea2e;
+	font-size: 15px;
+}
+.chat .chat-messages .messages-list .message {
+	display: flex;
+	flex-direction: column;
+	min-height: min-content;
+}
+.chat .chat-messages .messages-list .message .content {
+	color: #fff;
+	font-size: 15px;
+}
+.chat .chat-messages .messages-list .message .username {
+	font-size: 13px;
+	margin-bottom: 3px;
+	font-weight: 500;
+	border-left: 2px solid #000;
+	padding: 3px 5px;
+	border-radius: 2px;
+}
 .chat .chat-input {
 	background: #222;
 	border: none;
@@ -89,27 +102,17 @@ canvas {
 	color: #fff;
 }
 
-.chat .event-message {
-	color: #ffea2e;
-	font-size: 15px;
-}
-
-.chat .message {
+.change-username {
+	position: fixed;
+	top: 25px;
+	left: 25px;
+	width: 400px;
 	display: flex;
-	flex-direction: column;
-	min-height: min-content;
 }
-
-.message .username {
-	font-size: 13px;
-	margin-bottom: 3px;
-	font-weight: 500;
-	border-left: 2px solid #000;
-	padding: 3px 5px;
-	border-radius: 2px;
-}
-
-.message .content {
-	color: #fff;
+.change-username button {
+	height: 35px;
+	width: 35px;
 	font-size: 15px;
 }
+
+/*# sourceMappingURL=main.css.map */
