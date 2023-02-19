@@ -10,12 +10,21 @@ export const Movements = {
 	SPEED: 1.2,
 };
 
-export const Hitbox = { HEIGHT: 100, WIDTH: 50 };
+export const LookingDirections = {
+	LEFT: 0,
+	RIGHT: 1,
+};
+
+export const Hitbox = { HEIGHT: 50, WIDTH: 50 };
 
 export default class Player {
 	constructor(x, y) {
 		this.pos = { x, y };
 		this.velocity = { x: 0, y: 0 };
+
+		this.looking = Math.floor(
+			Math.random() * Object.keys(LookingDirections).length
+		);
 
 		this.onGround = false;
 		this.jumping = false;
@@ -46,8 +55,15 @@ export default class Player {
 			this.jumping = true;
 		}
 
-		if (controlManager.isDown("Left")) this.velocity.x -= Movements.SPEED;
-		if (controlManager.isDown("Right")) this.velocity.x += Movements.SPEED;
+		if (controlManager.isDown("Left")) {
+			this.velocity.x -= Movements.SPEED;
+			this.looking = LookingDirections.LEFT;
+		}
+
+		if (controlManager.isDown("Right")) {
+			this.velocity.x += Movements.SPEED;
+			this.looking = LookingDirections.RIGHT;
+		}
 
 		this.velocity.y += Movements.GRAVITY;
 		this.pos.x += this.velocity.x;

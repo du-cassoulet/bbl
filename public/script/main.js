@@ -45,7 +45,7 @@ canvas.height = Map.HEIGHT;
 const renderer = new Renderer(canvas);
 
 socket.on("connect", () => {
-	socket.emit("moveTo", getUsername(), { x: player.pos.x, y: player.pos.y });
+	socket.emit("moveTo", getUsername(), player);
 
 	document.onkeydown = function (e) {
 		if (!controlManager.keys[e.key]) onKeyPressed(e.key);
@@ -58,8 +58,7 @@ socket.on("connect", () => {
 
 	setInterval(() => {
 		player.update();
-
-		socket.emit("moveTo", getUsername(), { x: player.pos.x, y: player.pos.y });
+		socket.emit("moveTo", getUsername(), player);
 	}, 10);
 
 	socket.on("update", (connected) => renderer.render(connected));

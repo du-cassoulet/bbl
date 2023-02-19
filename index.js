@@ -26,19 +26,21 @@ setInterval(() => {
 io.on("connection", (socket) => {
 	console.log(`New connection to the websocket with the ID ${socket.id}`);
 
-	socket.on("moveTo", (username, coords) => {
+	socket.on("moveTo", (username, player) => {
 		if (!connected[socket.id]) {
 			connected[socket.id] = {
 				id: socket.id,
 				username,
-				coords,
+				coords: player.pos,
+				looking: player.looking,
 				color: `hsl(${Math.floor(Math.random() * 360)}, 70%, 70%)`,
 			};
 
 			socket.emit("userData", connected[socket.id]);
 			io.emit("newConnection", connected[socket.id]);
 		} else {
-			connected[socket.id].coords = coords;
+			connected[socket.id].coords = player.pos;
+			connected[socket.id].looking = player.looking;
 		}
 	});
 
